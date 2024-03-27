@@ -1,0 +1,8 @@
+# ninja log v5
+8	668	7332719224531054	build.ninja	c65783c686adba74
+5576	6555	7302582240625451	Tetris.exe	9f1573b5cbb77174
+29	1273	7302582187843352	CMakeFiles/Tetris.dir/tetris.cpp.obj	8968fe951b476762
+18	5576	7302582230861327	CMakeFiles/Tetris.dir/miniwin.cpp.obj	4d3be80f3fa368e9
+23	1277	7302582187889619	CMakeFiles/Tetris.dir/Coord.cpp.obj	9ed49aa456040124
+13	1317	7302582188297964	CMakeFiles/Tetris.dir/Pieza.cpp.obj	db2466a61545e7b7
+68	452	7301282371678543	CMakeFiles/Tetris.dir/Tablero.cpp.obj	458f190bd55fcf8e
