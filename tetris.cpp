@@ -5,19 +5,20 @@ using namespace miniwin;
 
 
 const int TAM = 25;
-const int COLUMNAS = 20;
-const int FILAS = 10;
+const int FILAS = 20;
+const int COLUMNAS = 10;
 
 struct Coord {
     int x;
     int y;
 };
 
-
 struct Pieza {
     Coord abs;
     Coord relat[3];
 };
+
+typedef int Tablero[COLUMNAS][FILAS];
 
 void cuadrado(int x, int y) {
     rectangulo_lleno(1 + x * TAM,
@@ -57,27 +58,35 @@ void rota_izquierda(Pieza& P) {
     }
 }
 
-int main() {
-    vredimensiona(TAM * FILAS, TAM * COLUMNAS);
-
-    Pieza s = { {2,2}, {{-1, -1}, {0, -1}, {1, 0}} };
-    pinta_pieza(s);
-    refresca();
-    int t = tecla();
-    while(t != ESCAPE){
-        if(t == DERECHA){
-            rota_derecha(s);
-        } else if (t == IZQUIERDA){
-            rota_izquierda(s);
+void vacia_tablero(Tablero& T) {
+    for (int i = 0; i < COLUMNAS; ++i) {
+        for (int j = 0; j < FILAS; ++j) {
+            T[i][j] = NEGRO;
         }
-        if(t != NINGUNA){
-            borra();
-            pinta_pieza(s);
-            refresca();
-        }
-        t = tecla();
     }
-    vcierra();
+}
+
+void pinta_tablero(const Tablero& T) {
+    for (int i = 0; i < COLUMNAS; ++i) {
+        for (int j = 0; j < FILAS; ++j) {
+            color(T[i][j]);
+            cuadrado(i, j);
+        }
+    }
+}
+
+int main() {
+    vredimensiona(TAM * COLUMNAS, TAM * FILAS);
+
+    Tablero T;
+    vacia_tablero(T);
+    T[0][0] = ROJO;
+    T[0][1] = VERDE;
+    T[5][5] = AZUL;
+
+    borra();
+    pinta_tablero(T);
+    refresca();
 
     return 0;
 }
