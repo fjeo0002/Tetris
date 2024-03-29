@@ -6,3 +6,9 @@
 23	1277	7302582187889619	CMakeFiles/Tetris.dir/Coord.cpp.obj	9ed49aa456040124
 13	1317	7302582188297964	CMakeFiles/Tetris.dir/Pieza.cpp.obj	db2466a61545e7b7
 68	452	7301282371678543	CMakeFiles/Tetris.dir/Tablero.cpp.obj	458f190bd55fcf8e
+7	859	7334165423861885	CMakeFiles/Tetris.dir/tetris.cpp.obj	8968fe951b476762
+860	1427	7334165429477518	Tetris.exe	cb6cf6db697fbf54
+6	646	7334166611317827	CMakeFiles/Tetris.dir/tetris.cpp.obj	8968fe951b476762
+646	800	7334166612809880	Tetris.exe	cb6cf6db697fbf54
+5	451	7334166726131278	CMakeFiles/Tetris.dir/tetris.cpp.obj	8968fe951b476762
+452	628	7334166727834406	Tetris.exe	cb6cf6db697fbf54
