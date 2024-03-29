@@ -35,15 +35,41 @@ void pinta_pieza(const Pieza& P) {
     }
 }
 
+Coord rota_derecha(const Coord& c){
+    Coord ret = {-c.y, c.x};
+    return ret;
+}
+
+void rota_derecha(Pieza& P) {
+    for (int i = 0; i < 3; ++i) {
+        P.relat[i] = rota_derecha(P.relat[i]);
+    }
+}
+
+Coord rota_izquierda(const Coord& c){
+    Coord ret = {c.y, -c.x};
+    return ret;
+}
+
+void rota_izquierda(Pieza& P) {
+    for (int i = 0; i < 3; ++i) {
+        P.relat[i] = rota_izquierda(P.relat[i]);
+    }
+}
+
 int main() {
     vredimensiona(TAM * FILAS, TAM * COLUMNAS);
 
     Pieza s = { {2,2}, {{-1, -1}, {0, -1}, {1, 0}} };
     Pieza l = { {2,8}, {{-1, 0}, {-1, -1}, {1, 0}} };
 
+    rota_derecha(s);
     pinta_pieza(s);
+
+    rota_izquierda(l);
     pinta_pieza(l);
+
     refresca();
-    
+
     return 0;
 }
