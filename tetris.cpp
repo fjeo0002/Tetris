@@ -61,15 +61,23 @@ int main() {
     vredimensiona(TAM * FILAS, TAM * COLUMNAS);
 
     Pieza s = { {2,2}, {{-1, -1}, {0, -1}, {1, 0}} };
-    Pieza l = { {2,8}, {{-1, 0}, {-1, -1}, {1, 0}} };
-
-    rota_derecha(s);
     pinta_pieza(s);
-
-    rota_izquierda(l);
-    pinta_pieza(l);
-
     refresca();
+    int t = tecla();
+    while(t != ESCAPE){
+        if(t == DERECHA){
+            rota_derecha(s);
+        } else if (t == IZQUIERDA){
+            rota_izquierda(s);
+        }
+        if(t != NINGUNA){
+            borra();
+            pinta_pieza(s);
+            refresca();
+        }
+        t = tecla();
+    }
+    vcierra();
 
     return 0;
 }
