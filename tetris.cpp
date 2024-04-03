@@ -16,6 +16,7 @@ struct Coord {
 struct Pieza {
     Coord abs;
     Coord relat[3];
+    int color;
 };
 
 typedef int Tablero[COLUMNAS][FILAS];
@@ -28,7 +29,7 @@ void cuadrado(int x, int y) {
 }
 
 void pinta_pieza(const Pieza& P) {
-    color(ROJO);
+    color(P.color);
     cuadrado(P.abs.x, P.abs.y);
     for (int i = 0; i < 3; ++i) {
         cuadrado(P.abs.x + P.relat[i].x,
@@ -58,7 +59,7 @@ void rota_izquierda(Pieza& P) {
     }
 }
 
-void vacia_tablero(Tablero& T) {
+void vaciarTablero(Tablero& T) {
     for (int i = 0; i < COLUMNAS; ++i) {
         for (int j = 0; j < FILAS; ++j) {
             T[i][j] = NEGRO;
@@ -66,7 +67,7 @@ void vacia_tablero(Tablero& T) {
     }
 }
 
-void pinta_tablero(const Tablero& T) {
+void actualizaTablero(const Tablero& T) {
     for (int i = 0; i < COLUMNAS; ++i) {
         for (int j = 0; j < FILAS; ++j) {
             color(T[i][j]);
@@ -75,17 +76,23 @@ void pinta_tablero(const Tablero& T) {
     }
 }
 
+void insertaPieza(Tablero& T, const Pieza& P) {
+    T[P.abs.x][P.abs.y] = P.color;
+    for (int i = 0; i < 3; ++i) {
+        T[P.abs.x + P.relat[i].x][P.abs.y + P.relat[i].y] = P.color;
+    }
+}
+
 int main() {
     vredimensiona(TAM * COLUMNAS, TAM * FILAS);
 
-    Tablero T;
-    vacia_tablero(T);
-    T[0][0] = ROJO;
-    T[0][1] = VERDE;
-    T[5][5] = AZUL;
+    Pieza P = {{4,8}, {{1,0},{1,1},{0,1}}, MAGENTA};
 
+    Tablero T;
+    vaciarTablero(T);
+    insertaPieza(T,P);
     borra();
-    pinta_tablero(T);
+    actualizaTablero(T);
     refresca();
 
     return 0;
