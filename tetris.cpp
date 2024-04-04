@@ -105,13 +105,50 @@ bool colisionPieza(const Tablero &T, const Pieza &P) {
 int main() {
     vredimensiona(TAM * COLUMNAS, TAM * FILAS);
 
-    Pieza P = {{9, 10}, {{1, 0}, {1, 1}, {0, 1}}, MAGENTA};
-
     Tablero T;
     vaciarTablero(T);
-    if (!colisionPieza(T, P))
-        mensaje("No hay colision");
-    else mensaje("Hay colision");
+
+    T[0][0] = ROJO;
+    T[5][4] = AMARILLO;
+    T[2][3] = VERDE;
+    actualizaTablero(T);
+
+    Pieza P = {{4, 5}, {{1, 0}, {1, 1}, {0, 1}}, MAGENTA};
+    pinta_pieza(P);
+    refresca();
+
+    int t = tecla();
+
+    while (t != ESCAPE) {
+        int x = P.abs.x;
+        int y = P.abs.y;
+
+        if(t == ARRIBA) {
+            P.abs.y--;
+        } else if(t == ABAJO) {
+            P.abs.y++;
+        } else if(t == IZQUIERDA) {
+            P.abs.x--;
+        } else if(t == DERECHA) {
+            P.abs.x++;
+        }
+
+        if (colisionPieza(T, P)) {
+            P.abs.x = x;
+            P.abs.y = y;
+        }
+
+        if(t != NINGUNA){
+            borra();
+            actualizaTablero(T);
+            pinta_pieza(P);
+            refresca();
+        }
+
+        t = tecla();
+    }
+
+    vcierra();
 
     return 0;
 }
