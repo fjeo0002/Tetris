@@ -132,10 +132,6 @@ int main() {
 
     Tablero T;
     vaciarTablero(T);
-
-    T[0][0] = ROJO;
-    T[5][4] = AMARILLO;
-    T[2][3] = VERDE;
     actualizaTablero(T);
 
     Pieza P;
@@ -146,11 +142,10 @@ int main() {
     int t = tecla();
 
     while (t != ESCAPE) {
-        int x = P.abs.x;
-        int y = P.abs.y;
+        Pieza copia = P;
 
         if(t == ARRIBA) {
-            P.abs.y--;
+            rota_derecha(P);
         } else if(t == ABAJO) {
             P.abs.y++;
         } else if(t == IZQUIERDA) {
@@ -160,8 +155,12 @@ int main() {
         }
 
         if (colisionPieza(T, P)) {
-            P.abs.x = x;
-            P.abs.y = y;
+            P = copia;
+        }
+
+        if(t == ESPACIO) {
+            insertaPieza(T,P);
+            piezaNueva(P);
         }
 
         if(t != NINGUNA){
