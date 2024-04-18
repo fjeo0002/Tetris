@@ -102,6 +102,41 @@ bool colisionPieza(const Tablero &T, const Pieza &P) {
 
 }
 
+bool filaLlena(const Tablero &T, int fila) {
+    for (int i = 0; i < COLUMNAS; ++i) {
+        if (T[i][fila] == NEGRO) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void quitarFila(Tablero &T, int fila) {
+    for(int j = fila; j > 0; --j) {
+        for (int i = 0; i < COLUMNAS; ++i) {
+            T[i][j] = T[i][j - 1];
+        }
+    }
+    for(int i = 0; i < COLUMNAS; ++i) {
+        T[i][0] = NEGRO;
+    }
+}
+
+int cuentaFila(Tablero &T) {
+    int fila = FILAS - 1;
+    int cont = 0;
+    while (fila >= 0) {
+        if(filaLlena(T, fila)) {
+            quitarFila(T,fila);
+            ++cont;
+        }
+        else{
+            --fila;
+        }
+    }
+    return cont;
+}
+
 const Coord relats[7][3] = {
         {{1,0},{1,1},{0,1}}, // Cuadrado            ROJO
         {{1,0},{0,1},{-1,1}}, // S                  VERDE
@@ -160,6 +195,7 @@ int main() {
 
         if(t == ESPACIO) {
             insertaPieza(T,P);
+            int cont = cuentaFila(T);
             piezaNueva(P);
         }
 
