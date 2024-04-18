@@ -102,7 +102,32 @@ bool colisionPieza(const Tablero &T, const Pieza &P) {
 
 }
 
+const Coord relats[7][3] = {
+        {{1,0},{1,1},{0,1}}, // Cuadrado            ROJO
+        {{1,0},{0,1},{-1,1}}, // S                  VERDE
+        {{-1,0},{0,1},{1,1}}, // 2                  AZUL
+        {{0,-1},{0,1},{1,1}}, // L                  AMARILLO
+        {{0,-1},{0,1},{-1,1}}, // L invertida       MAGENTA
+        {{0,-1},{0,1},{0,2}}, // Palo               CYAN
+        {{-1,0},{0,1},{1,0}} // T                   BLANCO
+};
+
+void piezaNueva(Pieza& P){
+    P.abs.x = 4;
+    P.abs.y = 5;
+
+    //Pieza al azar
+    int r = rand() % 7;
+    for (int i = 0; i < 3; ++i) {
+        P.relat[i] = relats[r][i];
+    }
+    r++;
+    P.color = r;
+}
+
 int main() {
+    srand(time(nullptr));
+
     vredimensiona(TAM * COLUMNAS, TAM * FILAS);
 
     Tablero T;
@@ -113,7 +138,8 @@ int main() {
     T[2][3] = VERDE;
     actualizaTablero(T);
 
-    Pieza P = {{4, 5}, {{1, 0}, {1, 1}, {0, 1}}, MAGENTA};
+    Pieza P;
+    piezaNueva(P);
     pinta_pieza(P);
     refresca();
 
