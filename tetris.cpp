@@ -149,7 +149,7 @@ const Coord relats[7][3] = {
 
 void piezaNueva(Pieza& P){
     P.abs.x = 4;
-    P.abs.y = 5;
+    P.abs.y = 1;
 
     //Pieza al azar
     int r = rand() % 7;
@@ -175,9 +175,15 @@ int main() {
     refresca();
 
     int t = tecla();
+    int frame = 0;
 
     while (t != ESCAPE) {
         Pieza copia = P;
+
+        if(t == NINGUNA && frame > 30){
+            frame = 0;
+            t = ABAJO;
+        }
 
         if(t == ARRIBA) {
             rota_derecha(P);
@@ -191,12 +197,11 @@ int main() {
 
         if (colisionPieza(T, P)) {
             P = copia;
-        }
-
-        if(t == ESPACIO) {
-            insertaPieza(T,P);
-            int cont = cuentaFila(T);
-            piezaNueva(P);
+            if(t == ABAJO) {
+                insertaPieza(T,P);
+                int cont = cuentaFila(T);
+                piezaNueva(P);
+            }
         }
 
         if(t != NINGUNA){
@@ -206,6 +211,8 @@ int main() {
             refresca();
         }
 
+        espera(30);
+        frame++;
         t = tecla();
     }
 
