@@ -19,7 +19,7 @@
 #define main _main_ // Super-cutre hack! (pero funciona)
 #endif
 
-int _main_();
+[[noreturn]] int _main_();
 
 std::ostream& log();
 
