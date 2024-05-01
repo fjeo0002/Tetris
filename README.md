@@ -2,14 +2,12 @@
 
 # Proyecto Elegido: Tetris 2D
 
-[https://lh7-us.googleusercontent.com/JBGxV5CSRY-HfPgkmYAAUK0BzjGBoU78BB4QCqz_8xjSVFqHHhJnHa_ouQWtbc_63sj4HVOk2ZGx8nuNRIVEeOMkzukhG8nHWJL6hYcNfvyROOpsMRPXHDfGtKTFHI1xnyoiCg8d3EZsxtbC7nVhqZY](https://lh7-us.googleusercontent.com/JBGxV5CSRY-HfPgkmYAAUK0BzjGBoU78BB4QCqz_8xjSVFqHHhJnHa_ouQWtbc_63sj4HVOk2ZGx8nuNRIVEeOMkzukhG8nHWJL6hYcNfvyROOpsMRPXHDfGtKTFHI1xnyoiCg8d3EZsxtbC7nVhqZY)
-
+![Tetris_logo.png](imgs/Tetris_logo.png)
 ## Autor del proyecto: Francisco José Escabias Ortega
 
 ### Proyecto elegido: Videojuego Tetris 2D
 
-[https://lh7-us.googleusercontent.com/99j0t7TTd7fWpf7FKoByWvA4EBR6Dqkte2yDrFnlKfvyA7Fxtsdu3Fn8xHtOlff9PzIQAYK8xYteTopSeg_TODsCfDNZnptHGrkq2vOTlEeMNttPD9FFq-zodieAA7lDsyQgyLj4nbOqE0GEyCfCKFs](https://lh7-us.googleusercontent.com/99j0t7TTd7fWpf7FKoByWvA4EBR6Dqkte2yDrFnlKfvyA7Fxtsdu3Fn8xHtOlff9PzIQAYK8xYteTopSeg_TODsCfDNZnptHGrkq2vOTlEeMNttPD9FFq-zodieAA7lDsyQgyLj4nbOqE0GEyCfCKFs)
-
+![tipo_app_multimedia.png](imgs/tipo_app_multimedia.png)
 ### Lenguaje de programación: C/C++
 
 ### IDE utilizado: CLion
@@ -18,7 +16,7 @@
 
 Interfaz gráfica simple y pequeña para poder jugar al tetris como en los viejos tiempos.
 
-[https://lh7-us.googleusercontent.com/4gYGpj4d0aKwnKeL0BHlxN4AOyApEDVPfvR8Rdvd6q_TpixueGTUQz8H7zjfNKiT0sDhL8UzKcXY353TiH44hu7H85AuKsYO6uXfpiCZFi6Uzthe4vsO9ivMqtiX4Q-fyVZ3RXTWGPDwmfSdC5dS-zI](https://lh7-us.googleusercontent.com/4gYGpj4d0aKwnKeL0BHlxN4AOyApEDVPfvR8Rdvd6q_TpixueGTUQz8H7zjfNKiT0sDhL8UzKcXY353TiH44hu7H85AuKsYO6uXfpiCZFi6Uzthe4vsO9ivMqtiX4Q-fyVZ3RXTWGPDwmfSdC5dS-zI)
+![interfaz_grafica.png](imgs/interfaz_grafica.png)
 
 Los **EXTRAS** de este videojuego podrían ser:
 
@@ -71,7 +69,7 @@ Referencias consultadas por el momento:
 
 Tras haber consultado las distintas fuentes de información, en un principio, la estructura del UML podría ser de la siguiente manera:
 
-[https://lh7-us.googleusercontent.com/ukGNvM_GpgjABQbJN2AmNBwJNYhhnfo2tLMCxXHaZSbm4bqmr57coCxHYegmtvHN_h4PM4sNTiTL1bGdfpPxPqJcyImLlluOtUPjANVuCu8W6rlg-PLVVgv3wnoizx6CeOFPGCs4ZBteyng_q6b7Rpo](https://lh7-us.googleusercontent.com/ukGNvM_GpgjABQbJN2AmNBwJNYhhnfo2tLMCxXHaZSbm4bqmr57coCxHYegmtvHN_h4PM4sNTiTL1bGdfpPxPqJcyImLlluOtUPjANVuCu8W6rlg-PLVVgv3wnoizx6CeOFPGCs4ZBteyng_q6b7Rpo)
+![diagrama_uml.png](imgs/diagrama_uml.png)
 
 Aquí una pequeña explicación de lo que cada atributo/método de cada clase representa en el juego del Tetris:
 
@@ -183,3 +181,9 @@ typedef int Tablero[COLUMNAS][FILAS]; ///< Tablero del juego
 A efectos de funciones mencionadas en el diseño preliminar, estas se han hecho de manera exacta a cómo se plantearon, cada una de manera desacoplada en el único fichero que tiene el proyecto y actúa como main: tetris.cpp
 
 Para más detalle de código y ver cómo funciona, recomiendo echar un vistazo al fichero mencionado y claramente documentado. Queda el proyecto a total uso libre y disposición de quien quiera usarlo para jugar.
+
+### Video demostrativo
+
+Se añade un breve video de no más de 3 minutos que muestra el funcionamiento básico del juego:
+
+[![Demostración del juego Tetris](https://img.youtube.com/vi/kLm36WbHJKo/0.jpg)](https://www.youtube.com/watch?v=kLm36WbHJKo)
