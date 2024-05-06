@@ -18,6 +18,7 @@
 #include <Windows.h>
 #include <iostream>
 #include <mmsystem.h>
+#include <time.h>
 
 using namespace std;
 using namespace miniwin;
@@ -520,12 +521,12 @@ int main() {
 //Bucle Principal de Aplicacion
 JugarOtraVez:
     //Música para Ventana de Inicio
-    PlaySound(TEXT("../title.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+    PlaySound(TEXT("../music/title.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
     if (!jugarOtraVez()) {
 
     }
     //Música para Juego
-    PlaySound(TEXT("../tetris.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+    PlaySound(TEXT("../music/tetris.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
     //Redimensiona la ventana de juego
     vredimensiona(MARGEN * 20 + ANCHO, MARGEN * 2 + ALTO);
@@ -558,7 +559,7 @@ JugarOtraVez:
 
         // Si el jugador alcanza el nivel máximo, gana el juego
         if (level == sizeof(VELOCIDAD_NIVEL) / sizeof(VELOCIDAD_NIVEL[0])) {
-            PlaySound(TEXT("../you_win.wav"), NULL, SND_FILENAME | SND_ASYNC);
+            PlaySound(TEXT("../music/you_win.wav"), NULL, SND_FILENAME | SND_ASYNC);
             finPartida("YOU WIN!");
             while (t != ESCAPE && t != ESPACIO) t = tecla();
             goto JugarOtraVez; // Sale del bucle de juego y pregunta si se desea jugar otra vez
@@ -619,7 +620,7 @@ JugarOtraVez:
 
                 // Si la nueva pieza colisiona con el tablero, el jugador pierde
                 if (colisionPieza(T, P)) {
-                    PlaySound(TEXT("../game_over.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                    PlaySound(TEXT("../music/game_over.wav"), NULL, SND_FILENAME | SND_ASYNC);
                     finPartida("GAME OVER");
                     while (t != ESCAPE && t != ESPACIO) t = tecla();
                     goto JugarOtraVez; // Sale del bucle de juego y pregunta si se desea jugar otra vez
@@ -639,5 +640,5 @@ JugarOtraVez:
 
     vcierra(); // Cierra la ventana de juego y termina el programa
 
-    return 0;
+    exit(0);
 }

@@ -182,7 +182,30 @@ A efectos de funciones mencionadas en el diseño preliminar, estas se han hecho 
 
 Para más detalle de código y ver cómo funciona, recomiendo echar un vistazo al fichero mencionado y claramente documentado. Queda el proyecto a total uso libre y disposición de quien quiera usarlo para jugar.
 
-### Video demostrativo
+## Instrucciones de Juego
+
+- Tecla → : Mover pieza derecha
+- Tecla ← : Mover pieza izquierda
+- Tecla ↑ : Girar pieza sentido horario
+- Tecla ↓ : Mover pieza abajo
+- Tecla 'X' : Girar pieza sentido antihorario
+- Tecla 'Z' : Girar pieza sentido horario
+- Tecla 'Esc' : Salir de la pantalla
+
+## Instrucciones de Descarga
+
+**Opción 1: Run desde Clion** 
+
+Visita el Repositorio https://github.com/fjeo0002/Tetris y descarga el ZIP.
+Abre CLion. En la ventana para configurar el .exe, pulsa "Ok".
+Pulsa "Run" o Mayus+F10
+
+**Opción 2: Run desde .exe** 
+
+Visita el Repositorio https://github.com/fjeo0002/Tetris y descarga el ZIP.
+Abre la carpeta /exe y haz doble clic en "Tetris.exe"
+
+## Video demostrativo
 
 Se añade un breve video de no más de 3 minutos que muestra el funcionamiento básico del juego:
 
